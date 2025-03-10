@@ -1,0 +1,54 @@
+const tinderUser=new Object()
+tinderUser.id="123abc"
+tinderUser.name="Prashant"
+tinderUser.isLoggedIn=true
+console.log(tinderUser)
+
+const regularUser={
+    email:"prash@gmail.com",
+    fullname:{
+        firstname:"Prashant",
+        lastname:"Bhargava"
+    }
+}
+console.log(`First name is ${regularUser.fullname.firstname}`)
+
+const obj1={
+    1:"a", 2:"b",3:"c"
+}
+const obj2={
+    4:"d", 5:"e",6:"f"
+}
+
+// const obj3={...obj1,...obj2}
+const obj3=Object.assign({},obj1,obj2)
+console.log(obj3)
+
+console.log(tinderUser)
+console.log(Object.keys(tinderUser))
+console.log(Object.values(tinderUser))
+
+console.log(Object.entries(tinderUser))
+
+console.log(tinderUser.hasOwnProperty('isLoggedIn'))//to check if this property is present or not
+
+
+const course={
+    coursename:"js in hindi",
+    price:"999",
+    courseInstructor:"hitesh"
+
+}
+
+// const {courseInstructor}=course
+const {courseInstructor: instructor}=course//destructure
+console.log(instructor)
+
+
+// {
+//     name:"hitesh",
+//     coursename:"js in hindi",
+//     price:"free"
+// }
+
+

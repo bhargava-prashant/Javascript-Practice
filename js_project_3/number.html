@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess a number</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Guess a Number</h1>
+    <div class="number">
+        <input type="number" id="number" class="number">
+        <button id="submit">
+            Submit Guess
+        </button>
+        <h4 class="previous"></h4>
+        <h3 class="remaining"></h3>
+        <h5 class="result"></h5>
+    </div>
+    
+</body>
+<script>
+    let number = Math.floor(Math.random() * 100) + 1;
+let guesses = 10;
+let previousguess = [];
+let playGame = true;
+let submit = document.querySelector('#submit');
+console.log(number);
+
+if (playGame) {
+    submit.addEventListener('click', function () {
+        let input = parseInt(document.getElementById('number').value);
+
+        if (isNaN(input) || input < 1 || input > 100) {
+            document.querySelector('.result').textContent = "Enter a valid number (1-100)";
+            return;
+        }
+
+        previousguess.push(input);
+        guesses--;
+
+        document.querySelector('.remaining').textContent = "Remaining guesses: " + guesses;
+        document.querySelector('.previous').textContent = "Previous guesses: " + previousguess.join(', ');
+
+        if (input === number) {
+            document.querySelector('.result').textContent = "You Won!";
+            endGame();
+        } else {
+            document.querySelector('.result').textContent = "Try Again!";
+        }
+
+        if (guesses <= 0) {
+            document.querySelector('.result').textContent = "You lost! The number was " + number;
+            endGame();
+        }
+    });
+}
+
+// Function to end the game and disable input
+function endGame() {
+    playGame = false;
+    document.getElementById('number').disabled = true;
+    submit.disabled = true;
+}
+
+</script>
+</html>

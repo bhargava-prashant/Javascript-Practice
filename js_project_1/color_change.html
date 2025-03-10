@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Web App</title>
+    <style>
+        button{
+            padding: 12px;
+            width: 100px;
+            margin-top: 50px;
+            margin-left: 100px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Color change js project
+    </h1>
+
+    <div class="colorchange">
+        <button id="grey"></button>
+        <button id="yellow"></button>
+        <button id="blue"></button>
+        <button id="purple"></button>
+        <button id="green"></button>
+    </div>
+    
+</body>
+<script>
+    const buttons=document.querySelector('div')
+    console.log(buttons);
+    const button_colors=buttons.querySelectorAll('button')
+    button_colors.forEach(element => {
+        element.style.backgroundColor=element.id; 
+    });
+    buttons.addEventListener('click',function(event){
+        const color=event.target.id;
+        document.body.style.backgroundColor=color;
+        console.log(color)
+    })
+    
+
+
+</script>
+</html>
